@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Patrick Engelbert">
     <link rel="icon" href="img/favicon.ico">
-    <title>Carousel Template for Bootstrap</title>
+    <title>Spotify Jukebox</title>
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- modification to modal to allow for increased size and responsiveness -->
     <link href="dist/css/bootstrap-modal-bs3patch.css" rel="stylesheet">
     <link href="dist/css/bootstrap-modal.css" rel="stylesheet">
+    <!-- news ticker style -->
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
@@ -39,15 +41,20 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Project name</a>
+                        <a class="navbar-brand" href="#">Spotify Jukebox</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="hidden-xs"><a><b>Currently Playing:</b></a></li>
+                            <li class="hidden-xs hidden-sm">
+                                <a href="#">
+                                    <b id="currentSong"></b>
+                                </a>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#" data-toggle="modal" data-target="#loginModal">Register</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                            <li><a id="admin-link" href="#" style="display:none;">Admin</a></li>
                         </ul>
                     </div>
                 </div>
@@ -178,7 +185,7 @@
         <!-- FOOTER -->
         <footer>
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p>&copy; 2015 Patrick Engelbert &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="#">Developer</a></p>
         </footer>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -189,9 +196,24 @@
     <!-- modification to modal to allow for increased size and responsiveness -->
     <script src="dist/js/bootstrap-modalmanager.js"></script>
     <script src="dist/js/bootstrap-modal.js"></script>
+    <!-- Newsticker scripts -->
+    <script src="dist/js/newsTicker.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Custom scripts -->
+    <script src="dist/js/main.js"></script>
+
+    <script type="text/javascript">
+        $('.newsticker').newsTicker({
+            max_rows: 1,
+            speed: 600,
+            direction: 'up',
+            duration: 4000,
+            autostart: 1,
+            pauseOnHover: 0
+        });
+    </script>
 </body>
 </html>

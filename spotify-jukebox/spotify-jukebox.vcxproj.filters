@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+    <Text Include="web\dist\js\main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="web\login\index.html" />
+    <None Include="web\index.html" />
+    <None Include="web\style.css" />
+    <None Include="web\dist\js\bootstrap.js" />
+    <None Include="web\dist\js\bootstrap.min.js" />
+    <None Include="web\dist\js\bootstrap-modal.js" />
+    <None Include="web\dist\js\bootstrap-modalmanager.js" />
+    <None Include="web\dist\js\npm.js" />
+    <None Include="web\dist\css\bootstrap.css" />
+    <None Include="web\dist\css\bootstrap.css.map" />
+    <None Include="web\dist\css\bootstrap.min.css" />
+    <None Include="web\dist\css\bootstrap-modal.css" />
+    <None Include="web\dist\css\bootstrap-modal-bs3patch.css" />
+    <None Include="web\dist\css\bootstrap-theme.css" />
+    <None Include="web\dist\css\bootstrap-theme.css.map" />
+    <None Include="web\dist\css\bootstrap-theme.min.css" />
+    <None Include="web\dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="web\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="web\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="web\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="web\login\login.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="web\dist\fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="web\img\favicon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="web\img\controls.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
