@@ -78,7 +78,6 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
     <Text Include="web\dist\js\main.js" />
   </ItemGroup>
   <ItemGroup>
@@ -99,10 +98,11 @@
     <None Include="web\dist\js\bootstrap.js" />
     <None Include="web\dist\js\bootstrap.min.js" />
     <None Include="web\dist\js\npm.js" />
-    <None Include="web\index.html" />
+    <None Include="web\jukebox-server.py" />
     <None Include="web\login\index.html" />
     <None Include="web\login\login.css" />
-    <None Include="web\style.css" />
+    <None Include="web\templates\login.html" />
+    <None Include="web\templates\main.html" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="web\dist\fonts\glyphicons-halflings-regular.ttf" />
