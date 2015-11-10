@@ -79,6 +79,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="web\dist\js\main.js" />
+    <Text Include="web\flask\build\lib\flask\testsuite\templates\mail.txt" />
+    <Text Include="web\flask\build\lib\flask\testsuite\templates\nested\nested.txt" />
+    <Text Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\admin\static\test.txt" />
+    <Text Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\admin\static\test.txt" />
+    <Text Include="web\flask\build\lib\flask\testsuite\test_apps\subdomaintestmodule\static\hello.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web\dist\css\bootstrap-modal-bs3patch.css" />
@@ -98,18 +103,116 @@
     <None Include="web\dist\js\bootstrap.js" />
     <None Include="web\dist\js\bootstrap.min.js" />
     <None Include="web\dist\js\npm.js" />
+    <None Include="web\flask\build\lib\flask\app.py" />
+    <None Include="web\flask\build\lib\flask\blueprints.py" />
+    <None Include="web\flask\build\lib\flask\config.py" />
+    <None Include="web\flask\build\lib\flask\ctx.py" />
+    <None Include="web\flask\build\lib\flask\debughelpers.py" />
+    <None Include="web\flask\build\lib\flask\exthook.py" />
+    <None Include="web\flask\build\lib\flask\ext\__init__.py" />
+    <None Include="web\flask\build\lib\flask\globals.py" />
+    <None Include="web\flask\build\lib\flask\helpers.py" />
+    <None Include="web\flask\build\lib\flask\json.py" />
+    <None Include="web\flask\build\lib\flask\logging.py" />
+    <None Include="web\flask\build\lib\flask\module.py" />
+    <None Include="web\flask\build\lib\flask\sessions.py" />
+    <None Include="web\flask\build\lib\flask\signals.py" />
+    <None Include="web\flask\build\lib\flask\templating.py" />
+    <None Include="web\flask\build\lib\flask\testing.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\appctx.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\basic.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\blueprints.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\config.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\deprecations.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\examples.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\ext.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\helpers.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\regression.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\reqctx.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\signals.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\static\index.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\subclassing.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\context_template.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\escaping_template.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\simple_template.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\template_filter.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\template_test.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templates\_macro.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\templating.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\testing.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\admin\templates\admin\index.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\admin\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\frontend\templates\frontend\index.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\frontend\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\apps\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\blueprintapp\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\config_module_app.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\config_package_app\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flaskext\oldext_package\submodule.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flaskext\oldext_package\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flaskext\oldext_simple.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flaskext\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flask_broken\b.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flask_broken\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flask_newext_package\submodule.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flask_newext_package\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\flask_newext_simple.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\importerror.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\lib\python2.5\site-packages\SiteEgg.egg" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\lib\python2.5\site-packages\site_app.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\lib\python2.5\site-packages\site_package\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\main_app.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\admin\static\css\test.css" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\admin\templates\index.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\admin\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\frontend\templates\index.html" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\frontend\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\apps\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\moduleapp\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\path\installed_package\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\test_apps\subdomaintestmodule\__init__.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\views.py" />
+    <None Include="web\flask\build\lib\flask\testsuite\__init__.py" />
+    <None Include="web\flask\build\lib\flask\views.py" />
+    <None Include="web\flask\build\lib\flask\wrappers.py" />
+    <None Include="web\flask\build\lib\flask\_compat.py" />
+    <None Include="web\flask\build\lib\flask\__init__.py" />
     <None Include="web\jukebox-server.py" />
     <None Include="web\login\index.html" />
     <None Include="web\login\login.css" />
+    <None Include="web\static\css\admin.css" />
+    <None Include="web\static\css\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="web\static\css\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="web\static\css\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="web\static\css\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="web\static\css\lib\bootstrap-modal-bs3patch.css" />
+    <None Include="web\static\css\lib\bootstrap-modal.css" />
+    <None Include="web\static\css\lib\bootstrap-theme.css" />
+    <None Include="web\static\css\lib\bootstrap-theme.css.map" />
+    <None Include="web\static\css\lib\bootstrap-theme.min.css" />
+    <None Include="web\static\css\lib\bootstrap.css" />
+    <None Include="web\static\css\lib\bootstrap.css.map" />
+    <None Include="web\static\css\lib\bootstrap.min.css" />
+    <None Include="web\static\css\login.css" />
+    <None Include="web\static\css\main.css" />
+    <None Include="web\static\js\admin.js" />
+    <None Include="web\static\js\main.js" />
+    <None Include="web\static\js\npm.js" />
+    <None Include="web\templates\admin.html" />
     <None Include="web\templates\login.html" />
     <None Include="web\templates\main.html" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="web\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Font Include="web\static\css\fonts\glyphicons-halflings-regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="web\img\controls.png" />
     <Image Include="web\img\favicon.ico" />
+    <Image Include="web\static\img\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="streamer\jukebox.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
