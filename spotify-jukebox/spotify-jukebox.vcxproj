@@ -201,6 +201,7 @@
     <None Include="web\templates\admin.html" />
     <None Include="web\templates\login.html" />
     <None Include="web\templates\main.html" />
+    <None Include="web\templates\register.html" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="web\dist\fonts\glyphicons-halflings-regular.ttf" />
