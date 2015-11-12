@@ -10,3 +10,25 @@ $('a.open-login-dialog').on('click', function (e) {
         'width': width
     });
 });
+
+function login_success(user){
+	current_user = user;
+	$(".open-login-dialog").each(function(e){
+		$(this).hide();
+	});
+	$("#user-link").show();
+	$("#logout-link").show();
+	if(current_user.admin){
+		$("#admin-link").show();
+	}
+}
+
+$('a#logout-link').on('click', function (e){
+	current_user = null;
+	$(".open-login-dialog").each(function(e){
+		$(this).show();
+	});
+	$("#user-link").hide();
+	$("#logout-link").hide();
+	$("#admin-link").hide();
+});
