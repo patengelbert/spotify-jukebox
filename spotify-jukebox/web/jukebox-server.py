@@ -1,11 +1,13 @@
 # import the Flask class from the flask module
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, request, session, g, redirect, url_for, \
+     abort, render_template, flash, json
 
 # create the application object
 app = Flask(__name__)
 
 # use decorators to link the function to a url
 @app.route('/')
+@app.route('/home')
 def home():
     return render_template('main.html')
 
@@ -25,12 +27,24 @@ def account():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin' and 1==0:
+        user = request.form['username']
+        pw = request.form['password']
+        if user != 'admin@admin' or pw != 'admin':
             error = 'Invalid Credentials. Please try again.'
         else:
-			return redirect(url_for('home'))
+	    session['logged_in'] = True
+            return json.dumps({'status':'OK','user':user,'pass':pw});
     return render_template('login.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('home'))
+
+app.secret_key = '"\x0fNG%\'w\xa30\xc1\83\xe7\xb9Ay\xbe\x0e\x13W\xc3\xd1d]\xba'
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
     app.run(debug=True)
+
+

@@ -180,6 +180,7 @@
     <None Include="web\jukebox-server.py" />
     <None Include="web\login\index.html" />
     <None Include="web\login\login.css" />
+    <None Include="web\static\css\account.css" />
     <None Include="web\static\css\admin.css" />
     <None Include="web\static\css\fonts\glyphicons-halflings-regular.eot" />
     <None Include="web\static\css\fonts\glyphicons-halflings-regular.svg" />
@@ -195,10 +196,16 @@
     <None Include="web\static\css\lib\bootstrap.min.css" />
     <None Include="web\static\css\login.css" />
     <None Include="web\static\css\main.css" />
+    <None Include="web\static\css\style.css" />
+    <None Include="web\static\js\account.js" />
     <None Include="web\static\js\admin.js" />
+    <None Include="web\static\js\common.js" />
+    <None Include="web\static\js\login.js" />
     <None Include="web\static\js\main.js" />
     <None Include="web\static\js\npm.js" />
+    <None Include="web\templates\account.html" />
     <None Include="web\templates\admin.html" />
+    <None Include="web\templates\layout.html" />
     <None Include="web\templates\login.html" />
     <None Include="web\templates\main.html" />
     <None Include="web\templates\register.html" />
