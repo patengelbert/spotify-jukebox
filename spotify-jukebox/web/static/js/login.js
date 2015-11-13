@@ -11,7 +11,7 @@ $(function () {
             },
             error: function (error) {
                 /* set error message*/
-                $("#error_message").text(request.responseText);
+                $("#error_message").text(JSON.parse(error.responseText)['error']);
                 $(".error").show();
             }
         });

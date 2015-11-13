@@ -42,7 +42,7 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            {% if not session.logged_in %}
+                            {% if not current_user.is_authenticated %}
                             <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="register">Register</a></li>
                             <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="login">Login</a></li>
                             {% else %}
@@ -59,13 +59,13 @@
 
     <!-- Login
     ==================================================-->
-    <div id="loginModal" class="modal fade" tabindex="-1" data-width="450" style="display: none;">
+    <div id="loginModal" class="modal fade" tabindex="-1" style="display: none;min-width:280px;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title">Account</h4>
         </div>
         <div class="modal-body" style="background-color:#eee;">
-            <iframe name="iframe_login" frameborder="0" scrolling="no"></iframe>
+            <iframe name="iframe_login" frameborder="0" scrolling="no" style="width:100%;"></iframe>
         </div>
     </div>
 

@@ -6,6 +6,6 @@ $('a.open-login-dialog').on('click', function (e) {
     $("#loginModal iframe").attr({
         'src': src,
         'height': height,
-        'width': width
+        //'width': width
     });
 });
