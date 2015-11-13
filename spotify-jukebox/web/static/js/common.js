@@ -9,7 +9,3 @@ $('a.open-login-dialog').on('click', function (e) {
         'width': width
     });
 });
-
-window.closeModal = function () {
-    $('#loginModal').modal('hide');
-};

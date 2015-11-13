@@ -1,5 +1,5 @@
 $(function () {
-    $('button').click(function () {
+    $('button').bind('click', function () {
         var user = $('#username').val();
         var pass = $('#password').val();
         $.ajax({
@@ -7,12 +7,14 @@ $(function () {
             data: $('form').serialize(),
             type: 'POST',
             success: function (response) {
-                window.parent.closeModal();
                 window.parent.location.reload();
             },
             error: function (error) {
-                /* Handle Erorr */
+                /* set error message*/
+                $("#error_message").text(request.responseText);
+                $(".error").show();
             }
         });
+        return false;
     });
 });

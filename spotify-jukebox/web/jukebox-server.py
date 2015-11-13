@@ -1,6 +1,7 @@
-# import the Flask class from the flask module
+﻿# import the Flask class from the flask module
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash, json
+from flask.json import jsonify
 
 # create the application object
 app = Flask(__name__)
@@ -18,11 +19,11 @@ def admin():
 @app.route('/register')
 def register():
     return render_template('register.html')
-	
+
 @app.route('/account')
 def account():
     return render_template('account.html')
-	
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -31,9 +32,10 @@ def login():
         pw = request.form['password']
         if user != 'admin@admin' or pw != 'admin':
             error = 'Invalid Credentials. Please try again.'
+            return jsonify(error=error), 301
         else:
-	    session['logged_in'] = True
-            return json.dumps({'status':'OK','user':user,'pass':pw});
+            session['logged_in'] = True
+            return jsonify(), 200
     return render_template('login.html', error=error)
 
 @app.route('/logout')

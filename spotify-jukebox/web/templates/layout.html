@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
     {% block head %}{% endblock %}
 </head>
 
@@ -40,21 +41,14 @@
                         <a class="navbar-brand" href="home">Spotify Jukebox</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="hidden-xs hidden-sm">
-                                <a href="#">
-                                    <b id="currentSong"></b>
-                                </a>
-                            </li>
-                        </ul>
                         <ul class="nav navbar-nav navbar-right">
                             {% if not session.logged_in %}
                             <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="register">Register</a></li>
                             <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="login">Login</a></li>
                             {% else %}
-							<li><a href="account" id="user-link">Account</a></li>
+                            <li><a href="account" id="user-link">Account</a></li>
                             <li><a href="admin" id="admin-link" style="display:none;">Admin</a></li>
-							<li><a href="logout" id="logout-link">Logout</a></li>
+                            <li><a href="logout" id="logout-link">Logout</a></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -76,10 +70,10 @@
     </div>
 
     {% for message in get_flashed_messages() %}
-        <div class=flash>{{ message }}</div>
+    <div class=flash>{{ message }}</div>
     {% endfor %}
     {% block body_top %}{% endblock %}
-    
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
