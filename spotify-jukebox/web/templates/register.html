@@ -11,8 +11,9 @@
 
     <title>Register for Spotify Jukebox</title>
 
+    <base target="_parent">
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../static/css/login.css" rel="stylesheet">
@@ -30,24 +31,26 @@
 
         <form class="form-signin">
             <h2 class="form-signin-heading">Please register</h2>
-            {% if error %}
             <p class="error">
-                <strong>Error:</strong> {{ error }}
-                {% endif %}
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPasswordRepeat" class="sr-only">Repeat Password</label>
-                <input type="password" id="inputPasswordRepeat" class="form-control" placeholder="Repeat Password" required>
+                <strong>Error:</strong>
+                <strong id="error_message"></strong>
+            </p>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            <label for="inputPasswordRepeat" class="sr-only">Repeat Password</label>
+            <input type="password" id="passwordrepeat" name="passwordrepeat" class="form-control" placeholder="Repeat Password" required>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         </form>
 
         <div class="login-help">
-            <a href="login">Login</a> - <a href="#">Forgot Password</a>
+            <a href="login" target="_self">Login</a>
         </div>
     </div> <!-- /container -->
 
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </body>
 </html>

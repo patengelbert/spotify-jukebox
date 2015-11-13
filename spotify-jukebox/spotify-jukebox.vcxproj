@@ -203,6 +203,7 @@
     <None Include="web\static\js\login.js" />
     <None Include="web\static\js\main.js" />
     <None Include="web\static\js\npm.js" />
+    <None Include="web\static\js\register.js" />
     <None Include="web\templates\account.html" />
     <None Include="web\templates\admin.html" />
     <None Include="web\templates\layout.html" />

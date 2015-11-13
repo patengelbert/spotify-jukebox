@@ -27,61 +27,61 @@
 <!-- NAVBAR
 ================================================== -->
 <body>
-    <div class="navbar-wrapper">
-        <div class="container">
-            <nav class="navbar navbar-inverse navbar-static-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="home">Spotify Jukebox</a>
+        <div class="navbar-wrapper">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="home">Spotify Jukebox</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if not current_user.is_authenticated %}
+                                <li><a id="register" href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="register">Register</a></li>
+                                <li><a id="login" href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="login">Login</a></li>
+                                {% else %}
+                                <li><a href="account" id="user-link">Account</a></li>
+                                <li><a href="admin" id="admin-link" style="display:none;">Admin</a></li>
+                                <li><a href="logout" id="logout-link">Logout</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            {% if not current_user.is_authenticated %}
-                            <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="register">Register</a></li>
-                            <li><a href="#" class="open-login-dialog" data-toggle="modal" data-target="#loginModal" data-src="login">Login</a></li>
-                            {% else %}
-                            <li><a href="account" id="user-link">Account</a></li>
-                            <li><a href="admin" id="admin-link" style="display:none;">Admin</a></li>
-                            <li><a href="logout" id="logout-link">Logout</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
-    </div>
 
-    <!-- Login
-    ==================================================-->
-    <div id="loginModal" class="modal fade" tabindex="-1" style="display: none;min-width:280px;">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Account</h4>
+        <!-- Login
+        ==================================================-->
+        <div id="loginModal" class="modal fade" tabindex="-1" style="display: none;min-width:280px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Account</h4>
+            </div>
+            <div class="modal-body" style="background-color:#eee;">
+                <iframe name="iframe_login" frameborder="0" scrolling="no" style="width:100%;"></iframe>
+            </div>
         </div>
-        <div class="modal-body" style="background-color:#eee;">
-            <iframe name="iframe_login" frameborder="0" scrolling="no" style="width:100%;"></iframe>
-        </div>
-    </div>
 
-    {% for message in get_flashed_messages() %}
-    <div class=flash>{{ message }}</div>
-    {% endfor %}
-    {% block body_top %}{% endblock %}
+        {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }}</div>
+        {% endfor %}
+        {% block body_top %}{% endblock %}
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div class="container marketing">
-        {% block body_main %}{% endblock %}
-        <!-- FOOTER -->
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container marketing">
+            {% block body_main %}{% endblock %}
+            <!-- FOOTER -->
+            <footer>
+<p class="pull-right"><a href="#">Back to top</a></p>
             <p>&copy; 2015 Patrick Engelbert &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="#">Developer</a></p>
         </footer>
     </div><!-- /.container -->
@@ -95,6 +95,16 @@
     <script src="{{ url_for('static', filename='js/lib/bootstrap-modal.js') }}"></script>
     <!-- scripts for login window-->
     <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+
+    <script type="text/javascript">
+        var error = {% if error %}true{% else %}false{% endif %};
+
+        $(document).ready(function() {
+            if (error) {
+                $('#login').click();
+            }
+        });
+    </script>
     {% block scripts %}
     <!-- Custom scripts -->
     {% endblock %}
