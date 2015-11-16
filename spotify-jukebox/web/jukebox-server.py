@@ -3,11 +3,14 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash, json
 from flask.json import jsonify
 from flask.ext.login import LoginManager, UserMixin, current_user, login_user, logout_user, login_required
+from falsk.ext.sqlalchemy import SQLAlchemy
 
 # create the application object
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.setup_app(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/[YOUR_DATABASE_NAME]'
+db = SQLAlchemy(app)
 
 
 class UserNotFoundError(Exception):
@@ -15,13 +18,20 @@ class UserNotFoundError(Exception):
 
 class UserDB(object):
     # proxy for a database of users
-    user_database = {'admin@admin': 'admin'}
+    user_database = {'admin@admin': {'pw': 'admin',
+				    'first_name': 'Admin',
+				    'last_name': 'admin'}}
     
     def add(self, user, pw):
-        self.user_database[user] = pw
+        self.user_database[user] = {'pw': pw}
 
     def get(self, user):
         return (user, self.user_database.get(user))
+
+    def update(self, user):
+        self.user_database[user] = {'pw': user.password,
+                                    'first_name':user.first_name,
+                                    'last_name':user.last_name}
 
     
 user_database = UserDB()
@@ -30,6 +40,9 @@ class User(UserMixin):
 
     def __init__(self, id):
         self.id, self.password = user_database.get(id)
+	self.first_name = self.password.get('first_name')
+	self.last_name = self.password.get('last_name')
+	self.password = self.password['pw']
         if self.id is None or self.password is None:
             raise UserNotFoundError()
 
@@ -40,6 +53,9 @@ class User(UserMixin):
             return self_class(id)
         except UserNotFoundError:
             return None
+
+    def update(self):
+        user_database.update(self)
 
 @login_manager.unauthorized_handler
 def unauthorized():
@@ -78,9 +94,16 @@ def register():
             return jsonify(error=error), 301
     return render_template('register.html', error=error)
 
-@app.route('/account')
+@app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
+    error = None
+    if request.method == 'POST':
+        user = current_user
+        user.first_name = request.form.get('firstname')
+        user.last_name = request.form.get('lastname')
+        user.password = request.form.get('password')
+        user.update()
     return render_template('account.html')
 
 @app.route('/login', methods=['GET', 'POST'])

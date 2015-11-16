@@ -205,6 +205,7 @@
     <None Include="web\static\js\npm.js" />
     <None Include="web\static\js\register.js" />
     <None Include="web\templates\404.html" />
+    <None Include="web\templates\about.html" />
     <None Include="web\templates\account.html" />
     <None Include="web\templates\admin.html" />
     <None Include="web\templates\layout.html" />

@@ -148,6 +148,7 @@
     <None Include="web\static\js\login.js" />
     <None Include="web\static\js\register.js" />
     <None Include="web\templates\404.html" />
+    <None Include="web\templates\about.html" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="web\dist\fonts\glyphicons-halflings-regular.ttf" />
