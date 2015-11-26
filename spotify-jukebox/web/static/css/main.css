@@ -24,6 +24,22 @@
     height: 500px;
 }
 
+.carousel-caption {
+	padding-bottom: 0px;
+    text-align: center;
+    overflow: hidden;
+}
+.carousel-caption img{
+	position: relative;
+    left: 100%;
+    margin-left: -200%;
+}
+.carousel-caption-text-wrapper {
+	position:absolute;
+	bottom: 0;
+	width:100%;
+	padding-bottom: 30px;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

@@ -10,8 +10,12 @@ from flask.ext.login import LoginManager, UserMixin, current_user, login_user, \
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 
+from sqlalchemy.exc import IntegrityError
+
 from passlib.hash import pbkdf2_sha256
 
+import requests
+import re
 
 # create the application object
 app = Flask(__name__)
@@ -59,6 +63,20 @@ class User(db.Model):
         
     def __repr__(self):
         return '<User %r>' % self.username
+
+class Song(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    song_id = db.Column(db.Integer)
+    priority = db.Column(db.Integer)
+    user_added = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    def __init__(self, song_id, user_id):
+        self.song_id = song_id
+        self.priority = 0
+        self.user_added = user_id
+        
+    def __repr__(self):
+        return '<Song %r>' % self.song_id
     
 db.create_all()
 
@@ -75,7 +93,7 @@ def load_user(id):
 # use decorators to link the function to a url
 @app.route('/')
 @app.route('/home')
-def home(errors=None):
+def home():
     return render_template('main.html')
 
 @app.route('/admin')
@@ -92,9 +110,13 @@ def register():
         if pbkdf2_sha256.verify(request.form['passwordrepeat'], password):
             user = User(id, id, password)
             db.session.add(user)
-            db.session.commit()
-            login_user(user)
-            return jsonify(), 200
+            try:
+                db.session.commit()
+                login_user(user)
+                return jsonify(), 200
+            except IntegrityError:
+                error = 'User already exists'
+                return jsonify(error=error), 422
         else:
             error = 'Passwords are not identical'
             return jsonify(error=error), 301
@@ -111,7 +133,7 @@ def account():
         if request.form.get('lastname') != None and request.form.get('lastname') != user.last_name:
             user.last_name = request.form.get('lastname')
         if request.form.get('password') != None and request.form.get('password') != user.password:
-            user.password = request.form.get('password')
+            user.password = pbkdf2_sha256.encrypt(request.form.get('password'), rounds=200000, salt_size=16)
         db.session.commit()
     return render_template('account.html')
 
@@ -138,6 +160,12 @@ def logout():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+@app.route('/toptracks')
+def toptracks():
+    page = requests.get('https://open.spotify.com/user/spotify/playlist/4hOKQuZbraPDIfaGbM3lKI').text
+    values = re.findall('https://open.spotify.com/track/([a-zA-Z0-9]+)', page)
+    return jsonify(values=values[:10]), 200
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
